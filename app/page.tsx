@@ -3,10 +3,7 @@ import { Button } from '@/components/ui/button';
 export default function Home() {
   return (
     <>
-      <main>
-        <h1>Hello</h1>
-        <Button variant="outline">Click me!</Button>
-      </main>
+      <Button variant="outline">Click me!</Button>
     </>
   );
 }
