@@ -1,9 +1,11 @@
-import Header from '@/components/shared/header';
+import { Container, Title } from '@/components/shared';
 
 export default function Home() {
   return (
     <>
-      <p>Main page</p>
+      <Container className="mt-10">
+        <Title text="All Pizzas" size="lg" className="font-extralight" />
+      </Container>
     </>
   );
 }

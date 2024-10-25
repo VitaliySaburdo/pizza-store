@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import Header from '@/components/shared/header';
+import {Header} from '@/components/shared/header';
 
 const nunito = localFont({
   src: './fonts/Nunito-VariableFont_wght.ttf',
