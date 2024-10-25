@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import Header from '@/components/shared/header';
 
 const nunito = localFont({
   src: './fonts/Nunito-VariableFont_wght.ttf',
@@ -20,8 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link data-rh="true" rel="icon" href="/logo.png" />
+      </head>
       <body className={`${nunito.variable}`}>
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );
