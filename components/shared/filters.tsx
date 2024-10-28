@@ -3,6 +3,7 @@ import { Title } from './title';
 import { FilterCheckbox } from './filter-checkbox';
 import { Input } from '../ui';
 import { RangeSlider } from './range-slider';
+import { CheckboxFiltersGroup } from './checkbox-filters-group';
 
 interface Props {
   className?: string;
@@ -34,6 +35,89 @@ export const Filters: React.FC<Props> = ({ className }) => {
         </div>
         <RangeSlider min={0} max={50} step={2} value={[0, 50]} />
       </div>
+
+      {/* Filter-group checkbox */}
+      <CheckboxFiltersGroup
+        className=""
+        title="Ingredients"
+        limit={6}
+        defaultItems={[
+          {
+            text: 'Cheese sous',
+            value: '1',
+          },
+          {
+            text: 'Mozzarella',
+            value: '2',
+          },
+          {
+            text: 'Garlic',
+            value: '3',
+          },
+          {
+            text: 'Pickles',
+            value: '4',
+          },
+          {
+            text: 'Red onion ',
+            value: '5',
+          },
+          {
+            text: 'Tomatoes',
+            value: '6',
+          },
+        ]}
+        items={[
+          {
+            text: 'Cheese sous',
+            value: '1',
+          },
+          {
+            text: 'Mozzarella',
+            value: '2',
+          },
+          {
+            text: 'Garlic',
+            value: '3',
+          },
+          {
+            text: 'Pickles',
+            value: '4',
+          },
+          {
+            text: 'Red onion ',
+            value: '5',
+          },
+          {
+            text: 'Tomatoes',
+            value: '6',
+          },
+          {
+            text: 'Cheese sous',
+            value: '1',
+          },
+          {
+            text: 'Mozzarella',
+            value: '2',
+          },
+          {
+            text: 'Garlic',
+            value: '3',
+          },
+          {
+            text: 'Pickles',
+            value: '4',
+          },
+          {
+            text: 'Red onion ',
+            value: '5',
+          },
+          {
+            text: 'Tomatoes',
+            value: '6',
+          },
+        ]}
+      />
     </div>
   );
 };
