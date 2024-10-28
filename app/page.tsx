@@ -1,5 +1,6 @@
 import { Container, Filters, Title, TopBar } from '@/components/shared';
-import { ProductCard } from '@/components/shared/productCard';
+import { ProductCard } from '@/components/shared/product-card';
+import { ProductsGroupList } from '@/components/shared/products-group-list';
 
 export default function Home() {
   return (
@@ -17,12 +18,60 @@ export default function Home() {
             {/* List of products */}
             <div className="flex-1">
               <div className="flex flex-col gap-16">
-                {/* <ProductCard
-                  id="1"
-                  name="pizza"
-                  price={15}
-                  imageUrl="https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100"
-                /> */}
+                <ProductsGroupList
+                  title="Pizzas"
+                  categoryId="1"
+                  items={[
+                    {
+                      id: '1',
+                      name: 'Pizza',
+                      price: 15,
+                      items: [{ price: 50 }],
+                      imageUrl:
+                        'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
+                    },
+                    {
+                      id: '1',
+                      name: 'Pizza',
+                      price: 15,
+                      items: [{ price: 50 }],
+                      imageUrl:
+                        'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
+                    },
+                    {
+                      id: '1',
+                      name: 'Pizza',
+                      price: 15,
+                      items: [{ price: 50 }],
+                      imageUrl:
+                        'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
+                    },
+                    {
+                      id: '1',
+                      name: 'Pizza',
+                      price: 15,
+                      items: [{ price: 50 }],
+                      imageUrl:
+                        'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
+                    },
+                    {
+                      id: '1',
+                      name: 'Pizza',
+                      price: 15,
+                      items: [{ price: 50 }],
+                      imageUrl:
+                        'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
+                    },
+                    {
+                      id: '1',
+                      name: 'Pizza',
+                      price: 15,
+                      items: [{ price: 50 }],
+                      imageUrl:
+                        'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
+                    },
+                  ]}
+                />
               </div>
             </div>
           </div>
