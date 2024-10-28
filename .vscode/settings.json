@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["Checbox", "extralight", "lucide", "vaul"]
+  "cSpell.words": [
+    "Checbox",
+    "clsx",
+    "extralight",
+    "lucide",
+    "tailwindcss",
+    "vaul",
+    "zustand"
+  ]
 }
