@@ -11,7 +11,7 @@ interface Props {
   title: string;
   items: any[];
   categoryId: number;
-  listClassName: string;
+  listClassName?: string;
   className?: string;
 }
 
