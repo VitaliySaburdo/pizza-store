@@ -1,3 +1,4 @@
+import { categories, ingredients, products } from './constants';
 import { prisma } from './prisma-client';
 import { hashSync } from 'bcrypt';
 
@@ -19,6 +20,18 @@ async function up() {
         role: 'ADMIN',
       },
     ],
+  });
+
+  await prisma.category.createMany({
+    data: categories,
+  });
+
+  await prisma.product.createMany({
+    data: products,
+  });
+
+  await prisma.ingridient.createMany({
+    data: ingredients,
   });
 }
 
