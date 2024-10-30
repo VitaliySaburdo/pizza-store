@@ -1,9 +1,11 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, ShoppingCart, User } from 'lucide-react';
 import { Container } from './container';
 import { Button } from '../ui';
+import { SearchInput } from './search-input';
 
 interface Props {
   className?: string;
@@ -14,13 +16,21 @@ export const Header: React.FC<Props> = ({ className }) => {
     <header className={cn('border border-b', className)}>
       <Container className="flex items-center justify-between py-8">
         {/* Left side */}
-        <div>
-          <Image src="/logo.png" alt="logo" width={35} height={35} />
-          <h1 className="text-2xl uppercase font-black">Pizza Store</h1>
-          <p className="text-sm text-gray-400 leading-3">
-            Pizza that always tastes good
-          </p>
+        <Link href="/">
+          <div>
+            <Image src="/logo.png" alt="logo" width={35} height={35} />
+            <h1 className="text-2xl uppercase font-black">Pizza Store</h1>
+            <p className="text-sm text-gray-400 leading-3">
+              Pizza that always tastes good
+            </p>
+          </div>
+        </Link>
+
+        {/* Middle side */}
+        <div className="mx-10 flex-1">
+          <SearchInput />
         </div>
+
         {/* Right side */}
         <div className="flex items-center gap-3">
           <Button variant="outline" className="flex items-center gap-1">
