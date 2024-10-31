@@ -12,8 +12,7 @@ interface Props {
   defaultItems: Items[];
   limit?: number;
   searchInputPlaceholder?: string;
-  onChange: (values: string[]) => void;
-  defaultValues: string[];
+  defaultValue?: string[];
   className?: string;
 }
 
@@ -23,8 +22,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
   defaultItems,
   limit = 5,
   searchInputPlaceholder = 'Search...',
-  onChange,
-  defaultValues,
+  defaultValue,
   className,
 }) => {
   const [showAll, setShowAll] = React.useState(false);

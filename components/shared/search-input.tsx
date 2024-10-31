@@ -3,10 +3,11 @@
 
 import React from 'react';
 import { Search } from 'lucide-react';
-import { useClickAway } from 'react-use';
-import { cn } from '@/lib/utils';
+import { useClickAway, useDebounce } from 'react-use';
 import Link from 'next/link';
 import { Api } from '@/services/api-client';
+import { Product } from '@prisma/client';
+import { cn } from '@/lib/utils';
 
 interface Props {
   className?: string;
@@ -15,15 +16,31 @@ interface Props {
 export const SearchInput: React.FC<Props> = ({ className }) => {
   const [focused, setFocused] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [products, setProducts] = React.useState<Product[]>([]);
   const ref = React.useRef(null);
 
   useClickAway(ref, () => {
     setFocused(false);
   });
 
-  React.useEffect(() => {
-    Api.products.search(searchQuery);
-  }, [searchQuery]);
+  useDebounce(
+    async () => {
+      try {
+        const data = await Api.products.search(searchQuery);
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    250,
+    [searchQuery]
+  );
+
+  const onClickItem = () => {
+    setFocused(false);
+    setSearchQuery('');
+    setProducts([]);
+  };
 
   return (
     <>
@@ -46,24 +63,30 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
           placeholder="Find pizzas..."
           onFocus={() => setFocused(true)}
         />
-        <div
-          className={cn(
-            'absolute w-full bg-white rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
-            focused && 'visible opacity-100 top-12'
-          )}
-        >
-          <Link
-            href="/product/1"
-            className="flex items-center gap-3 px-3 py-2 w-full hover:bg-primary/10"
+        {products.length > 0 && (
+          <div
+            className={cn(
+              'absolute w-full bg-white rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
+              focused && 'visible opacity-100 top-12'
+            )}
           >
-            <img
-              className="rounded-sh h-8 w-8"
-              src="https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100"
-              alt="Pizza"
-            />
-            <div>Pizza</div>
-          </Link>
-        </div>
+            {products.map((product) => (
+              <Link
+                onClick={onClickItem}
+                href={`/product/${product.id}`}
+                className="flex items-center gap-3 px-3 py-2 w-full hover:bg-primary/10"
+                key={product.id}
+              >
+                <img
+                  className="rounded-sh h-8 w-8"
+                  src={product.imageUrl}
+                  alt={product.name}
+                />
+                <div>{product.name}</div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

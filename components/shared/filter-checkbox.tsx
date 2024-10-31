@@ -2,7 +2,6 @@ import React from 'react';
 import { Checkbox } from '../ui/checkbox';
 
 export interface FilterChecboxProps {
-  includes(searchValue: string): unknown;
   text: string;
   value: string;
   endAdornment?: React.ReactNode;
