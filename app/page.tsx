@@ -25,7 +25,7 @@ export default function Home() {
                       id: '1',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -33,7 +33,7 @@ export default function Home() {
                       id: '2',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -41,7 +41,7 @@ export default function Home() {
                       id: '3',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -49,7 +49,7 @@ export default function Home() {
                       id: '4',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -57,7 +57,7 @@ export default function Home() {
                       id: '5',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -65,7 +65,7 @@ export default function Home() {
                       id: '6',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -79,7 +79,7 @@ export default function Home() {
                       id: '1',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -87,7 +87,7 @@ export default function Home() {
                       id: '2',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -95,7 +95,7 @@ export default function Home() {
                       id: '3',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -103,7 +103,7 @@ export default function Home() {
                       id: '4',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -111,7 +111,7 @@ export default function Home() {
                       id: '5',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
@@ -119,7 +119,7 @@ export default function Home() {
                       id: '6',
                       name: 'Pizza',
                       price: 15,
-                      items: [{ price: 50 }],
+                      items: [{ price: 8 }],
                       imageUrl:
                         'https://pizzahouse.ua/_next/image?url=https%3A%2F%2Fpizzahouse.ua%2Fmedia%2F4851%2Fconversions%2F%D0%BA%D0%B2%D0%B0%D1%82%D1%80%D0%BE-%D0%B4%D1%96-%D0%BA%D0%B0%D1%80%D0%BD%D0%B5-large.webp&w=1920&q=100',
                     },
