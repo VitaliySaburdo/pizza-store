@@ -19,10 +19,10 @@ interface PriceProps {
   priceTo?: number;
 }
 
-interface Filters extends PriceProps {
-  pizzaType: string[];
-  sizes: string[];
-  ingredients: string[];
+interface QueryFilters extends PriceProps {
+  pizzaType: string;
+  sizes: string;
+  ingredients: string;
 }
 
 export const Filters: React.FC<Props> = ({ className }) => {
@@ -60,7 +60,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
 
     const queryString = qs.stringify(filters, { arrayFormat: 'comma' });
 
-    router.push(`${queryString}`, { scroll: false });
+    console.log(queryString);
+
+    // router.push(`${queryString}`, { scroll: false });
   }, [prices, sizes, pizzaType, selectedIngredients]);
 
   return (
