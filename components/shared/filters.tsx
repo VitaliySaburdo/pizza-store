@@ -26,16 +26,23 @@ interface QueryFilters extends PriceProps {
 }
 
 export const Filters: React.FC<Props> = ({ className }) => {
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams() as unknown as Map<
+    keyof QueryFilters,
+    string
+  >;
   const router = useRouter();
   const { ingredients, loading, onAddId, selectedIngredients } =
     useFilterIngredients();
-  const [sizes, { toggle: toggleSizes }] = useSet(new Set<string>([]));
+  const [sizes, { toggle: toggleSizes }] = useSet(
+    new Set<string>(
+      searchParams.has('sizes') ? searchParams.get('sizes')?.split(',') : []
+    )
+  );
   const [pizzaType, { toggle: togglePizzaType }] = useSet(new Set<string>([]));
 
   const [prices, setPrices] = React.useState<PriceProps>({
-    priceFrom: 0,
-    priceTo: 50,
+    priceFrom: Number(searchParams.get('priceFrom')) || undefined,
+    priceTo: Number(searchParams.get('priceTo')) || undefined,
   });
 
   const items = ingredients.map((item) => ({
@@ -58,11 +65,11 @@ export const Filters: React.FC<Props> = ({ className }) => {
       ingredients: Array.from(selectedIngredients),
     };
 
-    const queryString = qs.stringify(filters, { arrayFormat: 'comma' });
+    const queryFilters = qs.stringify(filters, { arrayFormat: 'comma' });
 
-    console.log(queryString);
+    console.log(queryFilters);
 
-    // router.push(`${queryString}`, { scroll: false });
+    router.push(`?${queryFilters}`, { scroll: false });
   }, [prices, sizes, pizzaType, selectedIngredients]);
 
   return (
