@@ -67,8 +67,6 @@ export const Filters: React.FC<Props> = ({ className }) => {
 
     const queryFilters = qs.stringify(filters, { arrayFormat: 'comma' });
 
-    console.log(queryFilters);
-
     router.push(`?${queryFilters}`, { scroll: false });
   }, [prices, sizes, pizzaType, selectedIngredients]);
 
