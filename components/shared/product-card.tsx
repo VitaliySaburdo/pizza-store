@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
@@ -17,7 +18,13 @@ export const ProductCard: React.FC<Props> = ({ id, name, price, imageUrl }) => {
     <div>
       <Link href={`product/${id}`}>
         <div className="flex justify-center p-6 bg-secondary rounded-lg h-[260px]">
-          <img src={imageUrl} alt={name} className="w-[215px] h-[215px]" />
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={215}
+            height={215}
+            className="w-[215px] h-[215px]"
+          />
         </div>
 
         <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />

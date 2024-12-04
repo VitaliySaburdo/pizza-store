@@ -7,9 +7,16 @@ import { Title } from './title';
 import { ProductCard } from './product-card';
 import { useCategoryStore } from '@/store/category';
 
+interface ProductItem {
+  id: string;
+  name: string;
+  items: { price: number }[];
+  imageUrl: string;
+}
+
 interface Props {
   title: string;
-  items: any[];
+  items: ProductItem[];
   categoryId: number;
   listClassName?: string;
   className?: string;
