@@ -113,7 +113,9 @@ export const Filters: React.FC<Props> = ({ className }) => {
             placeholder="0"
             min={0}
             max={50}
-            value={String(prices.priceFrom)}
+            value={
+              prices.priceFrom !== undefined ? String(prices.priceFrom) : ''
+            }
             onChange={(e) => {
               updatePrice('priceFrom', Number(e.target.value));
             }}
@@ -123,7 +125,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
             placeholder="50"
             min={5}
             max={50}
-            value={String(prices.priceTo)}
+            value={prices.priceTo !== undefined ? String(prices.priceTo) : ''}
             onChange={(e) => {
               updatePrice('priceTo', Number(e.target.value));
             }}
