@@ -16,7 +16,7 @@ interface ProductItem {
 
 interface Props {
   title: string;
-  items: ProductItem[];
+  items: any[];
   categoryId: number;
   listClassName?: string;
   className?: string;
