@@ -1,0 +1,37 @@
+import { Container, Title } from '@/components/shared';
+import { ProductImage } from '@/components/shared';
+import { GroupVariants } from '@/components/shared/group-variants';
+import { prisma } from '@/prisma/prisma-client';
+import { notFound } from 'next/navigation';
+
+export default async function ProductPage({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
+  const product = await prisma.product.findFirst({ where: { id: Number(id) } });
+
+  if (!product) {
+    return notFound();
+  }
+
+  return (
+    <Container className="flex my-10">
+      <ProductImage imageUrl={product.imageUrl} size={40} />
+      <div className="w-[490px] bg-[#f7f6f5]">
+        <Title text={product.name} size="md" className="font-extrabold mb-1" />
+        <div className="text-gray-400">
+          Lorem ipsum dolor sit amet consectetur.
+        </div>
+        <GroupVariants
+          value="2"
+          items={[
+            { name: 'small', value: '1' },
+            { name: 'middle', value: '2' },
+            { name: 'large', value: '3' },
+          ]}
+        />
+      </div>
+    </Container>
+  );
+}
