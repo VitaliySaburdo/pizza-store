@@ -20,8 +20,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
 
   const filters = useFilters();
 
-  const { ingredients, loading, onAddId, selectedIngredients } =
-    useIngredients();
+  const { ingredients, loading } = useIngredients();
 
   const items = ingredients.map((item) => ({
     value: String(item.id),
@@ -128,8 +127,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
         defaultItems={items.slice(0, 5)}
         items={items}
         loading={loading}
-        onClickCheckbox={onAddId}
-        selected={selectedIngredients}
+        onClickCheckbox={filters.setSelectedIngredients}
+        selected={filters.selectedIngredients}
       />
     </div>
   );
