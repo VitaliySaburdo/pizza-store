@@ -10,7 +10,7 @@ interface ReturnProps {
   onAddId: (id: string) => void;
 }
 
-export const useFilterIngredients = (): ReturnProps => {
+export const useIngredients = (): ReturnProps => {
   const [ingredients, setIngredients] = React.useState<Ingredient[]>([]);
   const [loading, setLoading] = React.useState(true);
 
