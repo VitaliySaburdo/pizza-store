@@ -1,24 +1,22 @@
 'use client';
 
 import React from 'react';
-import { useSet } from 'react-use';
-import { useRouter } from 'next/navigation';
-import qs from 'qs';
 import { Title } from './title';
 import { Input } from '../ui';
 import { RangeSlider } from './range-slider';
 import { CheckboxFiltersGroup } from './checkbox-filters-group';
 import { useIngredients } from '@/hooks/use-ingredients';
 import { useFilters } from '@/hooks/use-filters';
+import { useQueryFilters } from '@/hooks/use-query-filters';
 
 interface Props {
   className?: string;
 }
 
 export const Filters: React.FC<Props> = ({ className }) => {
-  const router = useRouter();
-
   const filters = useFilters();
+
+  useQueryFilters(filters);
 
   const { ingredients, loading } = useIngredients();
 
@@ -31,19 +29,6 @@ export const Filters: React.FC<Props> = ({ className }) => {
     filters.setPrices('priceFrom', prices[0]);
     filters.setPrices('priceTo', prices[1]);
   };
-
-  React.useEffect(() => {
-    const params = {
-      ...filters.prices,
-      sizes: Array.from(filters.sizes),
-      pizzaType: Array.from(filters.pizzaTypes),
-      ingredients: Array.from(filters.selectedIngredients),
-    };
-
-    const queryFilters = qs.stringify(params, { arrayFormat: 'comma' });
-
-    router.push(`?${queryFilters}`, { scroll: false });
-  }, [filters, router]);
 
   return (
     <div className={className}>
