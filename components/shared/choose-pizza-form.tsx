@@ -6,10 +6,9 @@ import { Title } from './title';
 interface Props {
   imageUrl: string;
   name: string;
-  ingredients: any[];
-  items: any[];
+  ingredients?: any[];
+  items?: any[];
   loading?: boolean;
-  onSubmit: (itemId: number, ingredients: number[]) => void;
   className?: string;
 }
 
@@ -30,6 +29,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
       <div className="w-[490px] bg-[#f7f6f5] p-7">
         <Title text={name} size="md" className="font-extrabold mb-1" />
         <p className="text-gray-400">{textDetails}</p>
+        <div className="flex flex-col gap-4 mt-5"></div>
       </div>
     </div>
   );
