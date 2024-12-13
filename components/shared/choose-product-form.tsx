@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { ProductImage } from './product-image';
 import { Title } from './title';
+import { Button } from '../ui';
 
 interface Props {
   imageUrl: string;
@@ -12,13 +13,12 @@ interface Props {
   className?: string;
 }
 
-export const ChoosePizzaForm: React.FC<Props> = ({
+export const ChooseProductForm: React.FC<Props> = ({
   name,
   items,
   imageUrl,
   ingredients,
   loading,
-  onSubmit,
   className,
 }) => {
   const textDetails = '30 sm, tradition';
@@ -29,6 +29,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
       <div className="w-[490px] bg-[#f7f6f5] p-7">
         <Title text={name} size="md" className="font-extrabold mb-1" />
         <p className="text-gray-400">{textDetails}</p>
+        <Button>add to cart for price</Button>
         <div className="flex flex-col gap-4 mt-5"></div>
       </div>
     </div>
