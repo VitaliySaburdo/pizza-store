@@ -6,6 +6,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { ChooseProductForm } from '../choose-product-form';
 import { cn } from '@/lib/utils';
 import { ProductWithRelations } from '@/@types/prisma';
+import { ChoosePizzaForm } from '../choose-pizza-form';
 
 interface Props {
   product: ProductWithRelations;
@@ -26,7 +27,15 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
         )}
       >
         {isPizza ? (
-          'PizzaForm'
+          <ChoosePizzaForm
+            imageUrl={product.imageUrl}
+            name={product.name}
+            ingredients={product.ingredients}
+            items={[]}
+            onSubmit={function (itemId: number, ingredients: number[]): void {
+              throw new Error('Function not implemented.');
+            }}
+          />
         ) : (
           <ChooseProductForm imageUrl={product.imageUrl} name={product.name} />
         )}
