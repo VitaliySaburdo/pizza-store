@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Input } from '../ui';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '@/shared/components/ui/skeleton';
 import { FilterChecboxProps, FilterCheckbox } from './filter-checkbox';
 
 type Items = FilterChecboxProps;
