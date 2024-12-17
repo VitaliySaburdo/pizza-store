@@ -28,7 +28,7 @@ export default async function ProductPage({
           value="2"
           items={[
             { name: 'small', value: '1' },
-            { name: 'middle', value: '2' },
+            { name: 'medium', value: '2' },
             { name: 'large', value: '3' },
           ]}
         />
