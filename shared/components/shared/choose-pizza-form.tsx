@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Ingredient, ProductItem } from '@prisma/client';
-
 import { Title } from './title';
 import { Button } from '../ui';
 import { PizzaImage } from './pizza-image';
@@ -15,6 +14,7 @@ import {
   pizzaTypes,
 } from '@/shared/constants/pizza';
 import { IngredientItem } from './ingredient-item';
+import { useSet } from 'react-use';
 
 interface Props {
   imageUrl: string;
@@ -37,6 +37,10 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 }) => {
   const [size, setSize] = React.useState<PizzaSize>(20);
   const [type, setType] = React.useState<PizzaType>(1);
+
+  const [selectedIngredients, { toggle: addIngredient }] = useSet(
+    new Set<number>([])
+  );
 
   return (
     <div className={cn(className, 'flex flex-1')}>
@@ -69,8 +73,8 @@ export const ChoosePizzaForm: React.FC<Props> = ({
                 name={ingredient.name}
                 price={ingredient.price}
                 imageUrl={ingredient.imageUrl}
-                // onClick={() => addIngredient(ingredient.id)}
-                // active={selectedIngredients.has(ingredient.id)}
+                onClick={() => addIngredient(ingredient.id)}
+                active={selectedIngredients.has(ingredient.id)}
               />
             ))}
           </div>
