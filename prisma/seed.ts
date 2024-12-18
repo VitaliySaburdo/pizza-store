@@ -7,6 +7,26 @@ const randomDecimalNumber = (min: number, max: number) => {
   return parseFloat((Math.random() * (max - min) + min).toFixed(2));
 };
 
+const randomDecimalNumberOfPizza = (pizzaType?: number, size?: number) => {
+  let basePrice = 0;
+
+  if (pizzaType === 1) {
+    basePrice = 5;
+  } else {
+    basePrice = 4;
+  }
+
+  if (size === 8) {
+    basePrice += 0;
+  } else if (size === 12) {
+    basePrice += 1;
+  } else if (size === 16) {
+    basePrice += 2;
+  }
+
+  return basePrice;
+};
+
 const generateProductItem = ({
   productId,
   pizzaType,
@@ -18,9 +38,11 @@ const generateProductItem = ({
 }) => {
   return {
     productId,
-    price: randomDecimalNumber(1, 6),
     pizzaType,
     size,
+    price: pizzaType
+      ? randomDecimalNumberOfPizza(pizzaType, size)
+      : randomDecimalNumber(2, 6),
   } as Prisma.ProductItemUncheckedCreateInput;
 };
 

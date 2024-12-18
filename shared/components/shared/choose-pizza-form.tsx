@@ -8,6 +8,7 @@ import { PizzaImage } from './pizza-image';
 import { GroupVariants } from './group-variants';
 import { cn } from '@/shared/lib/utils';
 import {
+  mapPizzaType,
   PizzaSize,
   pizzaSizes,
   PizzaType,
@@ -35,12 +36,24 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   onSubmit,
   className,
 }) => {
-  const [size, setSize] = React.useState<PizzaSize>(20);
+  const [size, setSize] = React.useState<PizzaSize>(8);
   const [type, setType] = React.useState<PizzaType>(1);
 
   const [selectedIngredients, { toggle: addIngredient }] = useSet(
     new Set<number>([])
   );
+
+  const itemPrice = items.find(
+    (item) => item.pizzaType === type && item.size === size
+  )!.price;
+
+  const ingredientsTotalPrice = ingredients
+    .filter((ingredient) => selectedIngredients.has(ingredient.id))
+    .reduce((totalPrice, ingredient) => (totalPrice += ingredient.price), 0);
+
+  const totalPrice = itemPrice + ingredientsTotalPrice;
+
+  const textDetails = `${size}" ${mapPizzaType[type]} pizza`;
 
   return (
     <div className={cn(className, 'flex flex-1')}>
@@ -49,7 +62,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
       <div className="w-[490px] bg-[#f7f6f5] p-7">
         <Title text={name} size="md" className="font-extrabold mb-1" />
 
-        {/* <p className="text-gray-400">{textDetails}</p> */}
+        <p className="text-gray-400">{textDetails}</p>
 
         <div className="flex flex-col gap-4 mt-5">
           <GroupVariants
@@ -85,7 +98,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
           // onClick={handleClickAdd}
           className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
         >
-          Add to cart for {100}$
+          Add to cart for {totalPrice}$
         </Button>
       </div>
     </div>
