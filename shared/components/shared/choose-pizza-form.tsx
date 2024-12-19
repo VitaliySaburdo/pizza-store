@@ -15,7 +15,8 @@ import {
   pizzaTypes,
 } from '@/shared/constants/pizza';
 import { IngredientItem } from './ingredient-item';
-import { useSet } from 'react-use';
+import { usePizzaOptions } from '@/shared/hooks';
+import { getPizzaDetails } from '@/shared/lib';
 
 interface Props {
   imageUrl: string;
@@ -36,24 +37,28 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   onSubmit,
   className,
 }) => {
-  const [size, setSize] = React.useState<PizzaSize>(8);
-  const [type, setType] = React.useState<PizzaType>(1);
+  const {
+    size,
+    type,
+    selectedIngredients,
+    availableSizes,
+    currentItemId,
+    setSize,
+    setType,
+    addIngredient,
+  } = usePizzaOptions(items);
 
-  const [selectedIngredients, { toggle: addIngredient }] = useSet(
-    new Set<number>([])
+  const { totalPrice, textDetails } = getPizzaDetails(
+    type,
+    size,
+    items,
+    ingredients,
+    selectedIngredients
   );
 
-  const itemPrice = items.find(
-    (item) => item.pizzaType === type && item.size === size
-  )!.price;
-
-  const ingredientsTotalPrice = ingredients
-    .filter((ingredient) => selectedIngredients.has(ingredient.id))
-    .reduce((totalPrice, ingredient) => (totalPrice += ingredient.price), 0);
-
-  const totalPrice = itemPrice + ingredientsTotalPrice;
-
-  const textDetails = `${size}" ${mapPizzaType[type]} pizza`;
+  const handleClickAdd = () => {
+    console.log('click');
+  };
 
   return (
     <div className={cn(className, 'flex flex-1')}>
@@ -66,7 +71,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
         <div className="flex flex-col gap-4 mt-5">
           <GroupVariants
-            items={pizzaSizes}
+            items={availableSizes}
             value={String(size)}
             onClick={(value) => setSize(Number(value) as PizzaSize)}
           />
@@ -95,7 +100,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
         <Button
           loading={loading}
-          // onClick={handleClickAdd}
+          onClick={handleClickAdd}
           className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
         >
           Add to cart for {totalPrice}$
